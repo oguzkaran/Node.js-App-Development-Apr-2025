@@ -8,6 +8,7 @@
   },
   "private": true,
   "dependencies": {
+    "crypto-js": "^4.2.0",
     "dgram": "^1.0.1"
   }
 }

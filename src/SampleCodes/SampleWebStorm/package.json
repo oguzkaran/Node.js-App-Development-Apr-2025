@@ -1,10 +1,10 @@
 {
   "dependencies": {
     "ava": "^6.4.1",
+    "crypto-js": "^4.2.0",
     "jasmine": "^5.10.0",
     "jest": "^29.7.0"
   },
-
   "scripts": {
     "test": "mocha --recursive --exit"
   }

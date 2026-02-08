@@ -1,0 +1,4 @@
+- Get listen port from command line arguments
+- Create a TCP server that listens on the specified port that is taken from command line arguments. That server should accept the clients panic message.
+
+Usage: node app.mjs <udp-listen-port> <tcp-listen-port>

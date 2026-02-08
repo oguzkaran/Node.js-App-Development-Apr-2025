@@ -1,9 +1,17 @@
 import dgram from 'dgram'
 
+import crypto from 'crypto-js'
+
+const OK_MESSAGE_KEY = "csd1993"
+const PANIC_MESSAGE_KEY = "csystem1993"
+
 let counter = 0
 
 const sendIntervalCallback = (s,rh) => {
-    const message = Buffer.from(`I am Ok!..., Counter: ${++counter}`)
+    const messageText = `I am Ok!..., Counter: ${counter++}`
+    const encryptedMessage = crypto.AES.encrypt(messageText, OK_MESSAGE_KEY).toString()
+
+    const message = Buffer.from(encryptedMessage)
 
     s.send(message, 60700, rh, e => {
         if (e)

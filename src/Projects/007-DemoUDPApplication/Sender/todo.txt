@@ -1,0 +1,6 @@
+- Get listen host and port and interval milliseconds from command line arguments
+
+- Send a message to panic server (via TCP) with randomly generated timeout
+
+
+ Usage: node app.mjs <server-host>:<receiver-port>:<panic-server-port> <interval-ms>
