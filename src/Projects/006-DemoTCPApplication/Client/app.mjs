@@ -32,8 +32,6 @@ const main = () => {
     upperClient.on("end", () => console.log("Disconnected from upper server"))
     randomNumberClient.on("data", randomNumberDataCallback)
     randomNumberClient.on("end", () => console.log("Disconnected from random number server"))
-
-
 }
 
 main()

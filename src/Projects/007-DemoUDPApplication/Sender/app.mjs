@@ -1,10 +1,11 @@
 import dgram from 'dgram'
 
 let counter = 0
-const sendIntervalCallback = sender => {
+
+const sendIntervalCallback = (s,rh) => {
     const message = Buffer.from(`I am Ok!..., Counter: ${++counter}`)
 
-    sender.send(message, 60700, 'localhost', e => {
+    s.send(message, 60700, rh, e => {
         if (e)
             console.error("Error sending message:", e)
         else
@@ -13,9 +14,14 @@ const sendIntervalCallback = sender => {
 }
 
 const main = () => {
+    if (process.argv.length !== 3) {
+        console.error("Usage: node app.mjs <receiver_host>")
+        process.exit(1)
+    }
+
     const sender = dgram.createSocket('udp4')
 
-    setInterval(() => sendIntervalCallback(sender), 100)
+    setInterval(() => sendIntervalCallback(sender, process[2]), 100)
 }
 
 main()
